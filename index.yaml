@@ -1,0 +1,15 @@
+indexes:
+  - kind: cat
+    properties:
+      - name: referenceId
+      - name: found
+        direction: desc
+  - kind: cat
+    properties:
+      - name: referenceId
+      - name: found
+        direction: desc
+      - name: breed
+      - name: name
+      - name: owner
+

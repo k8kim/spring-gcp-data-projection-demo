@@ -1,0 +1,46 @@
+server:
+  shutdown: graceful
+  error:
+    include-message:
+      always
+spring:
+  sleuth:
+    sampler:
+      probability: 1
+    instrument:
+      scheduled:
+        skipPattern: catalog-services-watch,async,execute-cycle
+  application:
+    name: projection-test
+  cloud:
+    kubernetes:
+      loadbalancer:
+        mode: service
+    gcp:
+      bigquery:
+        project-id: katekim-louhi-test
+
+#Logging configuration
+logging:
+  level:
+    org.springframework.cloud.kubernetes.ribbon.KubernetesServerList: ERROR
+    org.springframework.cloud.kubernetes: DEBUG
+    com.example.projectiontest.services: DEBUG
+    com.example.projectiontest: DEBUG
+    org.springframework.cloud.loadbalancer.core.RetryAwareServiceInstanceListSupplier: DEBUG
+
+#Actuator endpoints
+management:
+  endpoint:
+    restart:
+      enabled: true
+    health:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
+  server:
+    port: 8081

@@ -1,0 +1,5 @@
+package com.example.projectiontest.models;
+
+public enum Breed {
+  SIAMESE, PERSIAN, MAINE_COON, RAGDOLL, SPHYNX, ABYSSINIAN, SCOTTISH_SHORTHAIR, AMERICAN_SHORTHAIR, BIRMAN, BRITISH_SHORTHAIR
+}
